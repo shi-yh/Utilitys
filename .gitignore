@@ -1,0 +1,253 @@
+/*
+!Assets
+!ProjectSettings
+!Packages
+!README.md
+!.gitignore
+!.gitattributes
+Assets/StreamingAssets/StandaloneWindows/*
+
+Assets/PlayMaker/Editor/Resources/EditorStartupPrefs.asset
+Assets/PlayMaker/Editor/Resources/EditorStartupPrefs.asset.meta
+Assets/Plugins/Grabbit.meta
+Assets/Plugins/Grabbit/Baked Colliders.asset
+Assets/Plugins/Grabbit/Baked Colliders.asset.meta
+Assets/Plugins/Grabbit/Default Grabbit Settings Preset.preset
+Assets/Plugins/Grabbit/Default Grabbit Settings Preset.preset.meta
+Assets/Plugins/Grabbit/Demo.meta
+Assets/Plugins/Grabbit/Editor.meta
+Assets/Plugins/Grabbit/Grabbit Assembly.asmdef
+Assets/Plugins/Grabbit/Grabbit Assembly.asmdef.meta
+Assets/Plugins/Grabbit/Grabbit Documentation.pdf
+Assets/Plugins/Grabbit/Grabbit Documentation.pdf.meta
+Assets/Plugins/Grabbit/Grabbit Settings.asset
+Assets/Plugins/Grabbit/Grabbit Settings.asset.meta
+Assets/Plugins/Grabbit/Scripts.meta
+Assets/Plugins/Grabbit/Textures.meta
+Assets/Plugins/Grabbit/VHACD.meta
+Assets/Plugins/Grabbit/Demo/Demo Scene.unity
+Assets/Plugins/Grabbit/Demo/Demo Scene.unity.meta
+Assets/Plugins/Grabbit/Demo/Materials.meta
+Assets/Plugins/Grabbit/Demo/Models.meta
+Assets/Plugins/Grabbit/Demo/Materials/Banana.mat
+Assets/Plugins/Grabbit/Demo/Materials/Banana.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Bowl.mat
+Assets/Plugins/Grabbit/Demo/Materials/Bowl.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Bricks 1.mat
+Assets/Plugins/Grabbit/Demo/Materials/Bricks 1.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Bricks.mat
+Assets/Plugins/Grabbit/Demo/Materials/Bricks.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Coconut.mat
+Assets/Plugins/Grabbit/Demo/Materials/Coconut.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Concrete.mat
+Assets/Plugins/Grabbit/Demo/Materials/Concrete.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Glass.mat
+Assets/Plugins/Grabbit/Demo/Materials/Glass.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Ground Tiles.mat
+Assets/Plugins/Grabbit/Demo/Materials/Ground Tiles.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Leaf 1.mat
+Assets/Plugins/Grabbit/Demo/Materials/Leaf 1.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Leaf.mat
+Assets/Plugins/Grabbit/Demo/Materials/Leaf.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Metal.mat
+Assets/Plugins/Grabbit/Demo/Materials/Metal.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/New Physic Material.physicMaterial
+Assets/Plugins/Grabbit/Demo/Materials/New Physic Material.physicMaterial.meta
+Assets/Plugins/Grabbit/Demo/Materials/Paper.mat
+Assets/Plugins/Grabbit/Demo/Materials/Paper.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Rock 1.mat
+Assets/Plugins/Grabbit/Demo/Materials/Rock 1.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Rock 2.mat
+Assets/Plugins/Grabbit/Demo/Materials/Rock 2.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Rock.mat
+Assets/Plugins/Grabbit/Demo/Materials/Rock.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Sky Box.mat
+Assets/Plugins/Grabbit/Demo/Materials/Sky Box.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Terrain 1.mat
+Assets/Plugins/Grabbit/Demo/Materials/Terrain 1.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Terrain.mat
+Assets/Plugins/Grabbit/Demo/Materials/Terrain.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Wall 1.mat
+Assets/Plugins/Grabbit/Demo/Materials/Wall 1.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Wall 2.mat
+Assets/Plugins/Grabbit/Demo/Materials/Wall 2.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Water.mat
+Assets/Plugins/Grabbit/Demo/Materials/Water.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Wood 1.mat
+Assets/Plugins/Grabbit/Demo/Materials/Wood 1.mat.meta
+Assets/Plugins/Grabbit/Demo/Materials/Wood.mat
+Assets/Plugins/Grabbit/Demo/Materials/Wood.mat.meta
+Assets/Plugins/Grabbit/Demo/Models/Banana Bunch.fbx
+Assets/Plugins/Grabbit/Demo/Models/Banana Bunch.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Banana.fbx
+Assets/Plugins/Grabbit/Demo/Models/Banana.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Beach.fbx
+Assets/Plugins/Grabbit/Demo/Models/Beach.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/book.fbx
+Assets/Plugins/Grabbit/Demo/Models/book.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Bricks Group Of 2.fbx
+Assets/Plugins/Grabbit/Demo/Models/Bricks Group Of 2.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Bricks Group Of 3.fbx
+Assets/Plugins/Grabbit/Demo/Models/Bricks Group Of 3.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Coconut.fbx
+Assets/Plugins/Grabbit/Demo/Models/Coconut.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Collider.fbx
+Assets/Plugins/Grabbit/Demo/Models/Collider.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Damaged Bowl.fbx
+Assets/Plugins/Grabbit/Demo/Models/Damaged Bowl.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Desk 2.fbx
+Assets/Plugins/Grabbit/Demo/Models/Desk 2.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Leaf 2.fbx
+Assets/Plugins/Grabbit/Demo/Models/Leaf 2.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Mashing Stick.fbx
+Assets/Plugins/Grabbit/Demo/Models/Mashing Stick.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Open Crate.fbx
+Assets/Plugins/Grabbit/Demo/Models/Open Crate.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Palm Tree.fbx
+Assets/Plugins/Grabbit/Demo/Models/Palm Tree.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Paper.fbx
+Assets/Plugins/Grabbit/Demo/Models/Paper.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Pebble 1.fbx
+Assets/Plugins/Grabbit/Demo/Models/Pebble 1.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Pebble 2.fbx
+Assets/Plugins/Grabbit/Demo/Models/Pebble 2.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Pebble.fbx
+Assets/Plugins/Grabbit/Demo/Models/Pebble.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Pencil.fbx
+Assets/Plugins/Grabbit/Demo/Models/Pencil.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Plank 1.fbx
+Assets/Plugins/Grabbit/Demo/Models/Plank 1.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Plank 2.fbx
+Assets/Plugins/Grabbit/Demo/Models/Plank 2.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Plank.fbx
+Assets/Plugins/Grabbit/Demo/Models/Plank.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Play Mode.fbx
+Assets/Plugins/Grabbit/Demo/Models/Play Mode.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Potion Containers 3.fbx
+Assets/Plugins/Grabbit/Demo/Models/Potion Containers 3.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Potion Containers 4.fbx
+Assets/Plugins/Grabbit/Demo/Models/Potion Containers 4.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Range Circle.fbx
+Assets/Plugins/Grabbit/Demo/Models/Range Circle.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/rigidbody.fbx
+Assets/Plugins/Grabbit/Demo/Models/rigidbody.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Rock.prefab
+Assets/Plugins/Grabbit/Demo/Models/Rock.prefab.meta
+Assets/Plugins/Grabbit/Demo/Models/Room HALF.fbx
+Assets/Plugins/Grabbit/Demo/Models/Room HALF.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Screw.fbx
+Assets/Plugins/Grabbit/Demo/Models/Screw.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Shelf 2.fbx
+Assets/Plugins/Grabbit/Demo/Models/Shelf 2.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Soft Cube.fbx
+Assets/Plugins/Grabbit/Demo/Models/Soft Cube.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Soft Ramp Up And Down.fbx
+Assets/Plugins/Grabbit/Demo/Models/Soft Ramp Up And Down.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Stool.fbx
+Assets/Plugins/Grabbit/Demo/Models/Stool.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Table.fbx
+Assets/Plugins/Grabbit/Demo/Models/Table.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/tick.fbx
+Assets/Plugins/Grabbit/Demo/Models/tick.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Torus Big.fbx
+Assets/Plugins/Grabbit/Demo/Models/Torus Big.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Torus Holder.fbx
+Assets/Plugins/Grabbit/Demo/Models/Torus Holder.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Torus Small.fbx
+Assets/Plugins/Grabbit/Demo/Models/Torus Small.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Torus.fbx
+Assets/Plugins/Grabbit/Demo/Models/Torus.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/TREE_1 2.fbx
+Assets/Plugins/Grabbit/Demo/Models/TREE_1 2.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/TREE_1 3.fbx
+Assets/Plugins/Grabbit/Demo/Models/TREE_1 3.fbx.meta
+Assets/Plugins/Grabbit/Demo/Models/Turning Arrow.fbx
+Assets/Plugins/Grabbit/Demo/Models/Turning Arrow.fbx.meta
+Assets/Plugins/Grabbit/Editor/Scripts.meta
+Assets/Plugins/Grabbit/Editor/Scripts/ColliderMeshDeletionPostProcessor.cs
+Assets/Plugins/Grabbit/Editor/Scripts/ColliderMeshDeletionPostProcessor.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitEditor.cs
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitEditor.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitHandlerEditor.cs
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitHandlerEditor.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitRange.cs
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitRange.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitStartingWindow.cs
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitStartingWindow.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitTool.cs
+Assets/Plugins/Grabbit/Editor/Scripts/GrabbitTool.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/PrefabModeProcessor.cs
+Assets/Plugins/Grabbit/Editor/Scripts/PrefabModeProcessor.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities.meta
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/GUIHelper.cs
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/GUIHelper.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/ListExt.cs
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/ListExt.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/MathExt.cs
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/MathExt.cs.meta
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/Vector3Ext.cs
+Assets/Plugins/Grabbit/Editor/Scripts/Utilities/Vector3Ext.cs.meta
+Assets/Plugins/Grabbit/Scripts/ColliderMeshContainer.cs
+Assets/Plugins/Grabbit/Scripts/ColliderMeshContainer.cs.meta
+Assets/Plugins/Grabbit/Scripts/GrabbitData.cs
+Assets/Plugins/Grabbit/Scripts/GrabbitData.cs.meta
+Assets/Plugins/Grabbit/Scripts/GrabbitHandler.cs
+Assets/Plugins/Grabbit/Scripts/GrabbitHandler.cs.meta
+Assets/Plugins/Grabbit/Scripts/GrabbitSettings.cs
+Assets/Plugins/Grabbit/Scripts/GrabbitSettings.cs.meta
+Assets/Plugins/Grabbit/Scripts/SerializableDictionary.cs
+Assets/Plugins/Grabbit/Scripts/SerializableDictionary.cs.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Big Editor Black.png
+Assets/Plugins/Grabbit/Textures/Grabbit Big Editor Black.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Big Editor White.png
+Assets/Plugins/Grabbit/Textures/Grabbit Big Editor White.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Head - Black.png
+Assets/Plugins/Grabbit/Textures/Grabbit Head - Black.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Head - White.png
+Assets/Plugins/Grabbit/Textures/Grabbit Head - White.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Head - Whitr.png
+Assets/Plugins/Grabbit/Textures/Grabbit Head - Whitr.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Head Big Black.png
+Assets/Plugins/Grabbit/Textures/Grabbit Head Big Black.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Head Big White.png
+Assets/Plugins/Grabbit/Textures/Grabbit Head Big White.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit Head Scene White.png
+Assets/Plugins/Grabbit/Textures/Grabbit Head Scene White.png.meta
+Assets/Plugins/Grabbit/Textures/Grabbit -Text.png
+Assets/Plugins/Grabbit/Textures/Grabbit -Text.png.meta
+Assets/Plugins/Grabbit/Textures/jungle logo.PNG
+Assets/Plugins/Grabbit/Textures/jungle logo.PNG.meta
+Assets/Plugins/Grabbit/Textures/MonKey.png
+Assets/Plugins/Grabbit/Textures/MonKey.png.meta
+Assets/Plugins/Grabbit/Textures/Parrot Icon exclamation mark.png
+Assets/Plugins/Grabbit/Textures/Parrot Icon exclamation mark.png.meta
+Assets/Plugins/Grabbit/Textures/Parrot Icon heart.png
+Assets/Plugins/Grabbit/Textures/Parrot Icon heart.png.meta
+Assets/Plugins/Grabbit/Textures/Parrot Icon question martk.png
+Assets/Plugins/Grabbit/Textures/Parrot Icon question martk.png.meta
+Assets/Plugins/Grabbit/Textures/Parrot Icon speed 2.png
+Assets/Plugins/Grabbit/Textures/Parrot Icon speed 2.png.meta
+Assets/Plugins/Grabbit/Textures/Parrot Icon star.png
+Assets/Plugins/Grabbit/Textures/Parrot Icon star.png.meta
+Assets/Plugins/Grabbit/Textures/Parrot.png
+Assets/Plugins/Grabbit/Textures/Parrot.png.meta
+Assets/Plugins/Grabbit/VHACD/liblibvhacd.dylib
+Assets/Plugins/Grabbit/VHACD/liblibvhacd.dylib.meta
+Assets/Plugins/Grabbit/VHACD/liblibvhacd.so
+Assets/Plugins/Grabbit/VHACD/liblibvhacd.so.meta
+Assets/Plugins/Grabbit/VHACD/libvhacd.dll
+Assets/Plugins/Grabbit/VHACD/libvhacd.dll.meta
+Assets/Plugins/Grabbit/VHACD/LICENSE.MD
+Assets/Plugins/Grabbit/VHACD/LICENSE.MD.meta
+Assets/Plugins/Grabbit/VHACD/README.md
+Assets/Plugins/Grabbit/VHACD/README.md.meta
+Assets/Plugins/Grabbit/VHACD/Third Party Notices.md
+Assets/Plugins/Grabbit/VHACD/Third Party Notices.md.meta
+Assets/Plugins/Grabbit/VHACD/vcomp140.dll
+Assets/Plugins/Grabbit/VHACD/vcomp140.dll.meta
+Assets/Plugins/Grabbit/VHACD/vcomp140d.dll
+Assets/Plugins/Grabbit/VHACD/vcomp140d.dll.meta
+Assets/Plugins/Grabbit/VHACD/vhacd.asmdef
+Assets/Plugins/Grabbit/VHACD/vhacd.asmdef.meta
+Assets/Plugins/Grabbit/VHACD/VhacdGenerator.cs
+Assets/Plugins/Grabbit/VHACD/VhacdGenerator.cs.meta

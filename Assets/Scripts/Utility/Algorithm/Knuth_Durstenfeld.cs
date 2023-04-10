@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public struct Coord
@@ -13,6 +11,16 @@ public struct Coord
         this.x = x;
 
         this.y = y;
+    }
+
+    public static bool operator !=(Coord coord0, Coord coord1)
+    {
+        return !(coord0 == coord1);
+    }
+
+    public static bool operator ==(Coord coord0, Coord coord1)
+    {
+        return coord0.x == coord1.x && coord0.y == coord1.y;
     }
 }
 

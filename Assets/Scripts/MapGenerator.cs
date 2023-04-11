@@ -90,16 +90,11 @@ public class MapGenerator : MonoBehaviour
             {
                 if (i == 0 || i == _config.mapSize.x - 1 || j == 0 || j == _config.mapSize.y - 1)
                 {
-                    _mapObstacles[i, j] = true;
+                    SetObstacle(i, j, true);
                 }
                 else
                 {
-                    _mapObstacles[i, j] = Random.value < _config.obsRate;
-                }
-
-                if (_mapObstacles[i, j])
-                {
-                    CreateObstacle(_coords[i, j]);
+                    SetObstacle(i, j, Random.value < _config.obsRate);
                 }
             }
         }
@@ -183,28 +178,30 @@ public class MapGenerator : MonoBehaviour
     {
         List<List<Coord>> wallRegions = GetRegions(true);
 
-        int size = 20;
+        int blockSize = 10;
 
         for (int i = 0; i < wallRegions.Count; i++)
         {
-            if (wallRegions[i].Count < size)
+            if (wallRegions[i].Count < blockSize)
             {
                 for (int j = 0; j < wallRegions[i].Count; j++)
                 {
-                    _mapObstacles[wallRegions[i][j].x, wallRegions[i][j].y] = false;
+                    SetObstacle(wallRegions[i][j].x, wallRegions[i][j].y, false);
                 }
             }
         }
 
         List<List<Coord>> roomRegions = GetRegions(false);
 
+        int roomSize = 20;
+
         for (int i = 0; i < roomRegions.Count; i++)
         {
-            if (roomRegions[i].Count < size)
+            if (roomRegions[i].Count < roomSize)
             {
                 for (int j = 0; j < roomRegions[i].Count; j++)
                 {
-                    _mapObstacles[roomRegions[i][j].x, roomRegions[i][j].y] = true;
+                    SetObstacle(roomRegions[i][j].x, roomRegions[i][j].y, true);
                 }
             }
         }
@@ -228,22 +225,11 @@ public class MapGenerator : MonoBehaviour
                     if (neighborWalls > 4)
                     {
                         //如果周围墙的数量大于4个，则将自己封闭
-                        _mapObstacles[j, k] = true;
-
-                        if (!_obs.ContainsKey(coord) || _obs[coord] == null)
-                        {
-                            CreateObstacle(coord);
-                        }
+                        SetObstacle(j, k, true);
                     }
                     else if (neighborWalls < 4)
                     {
-                        _mapObstacles[j, k] = false;
-
-                        if (_obs.ContainsKey(coord) && _obs[coord] != null)
-                        {
-                            Destroy(_obs[coord]);
-                            _obs[coord] = null;
-                        }
+                        SetObstacle(j, k, false);
                     }
                 }
             }
@@ -255,7 +241,7 @@ public class MapGenerator : MonoBehaviour
         }
 
         yield return new WaitForSeconds(3);
-        
+
         RejectMap();
     }
 
@@ -372,6 +358,28 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    private void SetObstacle(int x, int y, bool isBlock)
+    {
+        _mapObstacles[x, y] = isBlock;
+
+        if (isBlock)
+        {
+            if (!_obs.ContainsKey(_coords[x, y]) || _obs[_coords[x, y]] == null)
+            {
+                CreateObstacle(_coords[x, y]);
+            }
+        }
+        else
+        {
+            if (_obs.ContainsKey(_coords[x, y]) && _obs[_coords[x, y]] != null)
+            {
+                Destroy(_obs[_coords[x, y]]);
+                _obs[_coords[x, y]] = null;
+            }
+        }
+    }
+
+
     private void CreateObstacle(Coord coord)
     {
         float obsHeight = Mathf.Lerp(obsMinHeight, obsMaxHeight, Random.Range(0f, 1f));
@@ -381,15 +389,15 @@ public class MapGenerator : MonoBehaviour
         go.transform.localScale = new Vector3((1 - outLinePersent), obsHeight, 1 - outLinePersent);
 
 
-        MeshRenderer mesh = go.GetComponent<MeshRenderer>();
-
-        Material material = mesh.material;
-
-        float colorPersent = coord.y / _config.mapSize.y;
-
-        material.color = Color.Lerp(frontGroundColor, backGroundCOlor, colorPersent);
-
-        mesh.material = material;
+        // MeshRenderer mesh = go.GetComponent<MeshRenderer>();
+        //
+        // Material material = mesh.material;
+        //
+        // float colorPersent = coord.y / _config.mapSize.y;
+        //
+        // material.color = Color.Lerp(frontGroundColor, backGroundCOlor, colorPersent);
+        //
+        // mesh.material = material;
 
         _obs[coord] = go;
     }

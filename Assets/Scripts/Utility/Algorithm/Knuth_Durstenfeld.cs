@@ -37,4 +37,30 @@ public partial class Utility
 
         return dataArray;
     }
+
+    public static T[] ShuffleCoord<T>(T[,] dataArray)
+    {
+        int xLength = dataArray.GetLength(0);
+
+        int yLength = dataArray.GetLength(1);
+
+        T[] array = new T[xLength * yLength];
+
+
+        for (int i = 0; i < xLength; i++)
+        {
+            for (int j = 0; j < yLength; j++)
+            {
+                int randomX = Random.Range(i, xLength);
+                int randomY = Random.Range(j, yLength);
+
+                (dataArray[randomX, randomY], dataArray[i, j]) = (dataArray[i, j], dataArray[randomX, randomY]);
+
+                array[i * yLength + j] = dataArray[i, j];
+            }
+        }
+
+
+        return array;
+    }
 }

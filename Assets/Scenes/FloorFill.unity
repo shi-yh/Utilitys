@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.15
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.05
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 62d645a9349751e458b27698a90abd5c, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1040614711
 Transform:
@@ -438,6 +438,7 @@ MonoBehaviour:
   frontGroundColor: {r: 0, g: 1, b: 0.09479904, a: 0}
   backGroundCOlor: {r: 0, g: 0.7249274, b: 1, a: 0}
   mapMaxSize: {x: 30, y: 30}
+  navMeshObstacle: {fileID: 5035111467436250452, guid: 4334d1e7d743d4a4dae98fe89a74e8f0, type: 3}
   outLinePersent: 0.1
 --- !u!4 &1060905979
 Transform:

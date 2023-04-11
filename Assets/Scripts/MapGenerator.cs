@@ -9,7 +9,7 @@ public class MapGenerator : MonoBehaviour
 {
     public GameObject tile;
 
-    public Vector2 mapSize;
+    public Vector2Int mapSize;
 
     public Transform mapParent;
 
@@ -28,7 +28,10 @@ public class MapGenerator : MonoBehaviour
 
     [Range(0, 1)] public float outLinePersent;
 
-    private List<Coord> _coords = new List<Coord>();
+    /// <summary>
+    /// 实际地图
+    /// </summary>
+    private Coord[,] _coords;
 
     private Queue<Coord> _shuffleCoords = new Queue<Coord>();
 
@@ -44,9 +47,12 @@ public class MapGenerator : MonoBehaviour
 
     private void GenerateMap()
     {
+        _coords = new Coord[mapSize.x, mapSize.y];
+        
+        
         CreateTile();
 
-        _shuffleCoords = new Queue<Coord>(Utility.ShuffleCoord(_coords.ToArray()));
+        _shuffleCoords = new Queue<Coord>(Utility.ShuffleCoord(_coords));
 
         CreateObs();
 
@@ -87,19 +93,19 @@ public class MapGenerator : MonoBehaviour
                 Vector3 pos = GetPosByCoord(coord);
                 GameObject go = Instantiate(tile, pos, Quaternion.Euler(90, 0, 0), mapParent);
                 go.transform.localScale *= (1 - outLinePersent);
-                _coords.Add(coord);
+                _coords[i, j] = coord;
             }
         }
 
 
-        _mapCenter = new Coord((int)mapSize.x / 2, (int)mapSize.y / 2);
+        _mapCenter = new Coord(mapSize.x / 2, mapSize.y / 2);
     }
 
     private void CreateObs()
     {
         int obsCount = (int)(obsRate * mapSize.x * mapSize.y);
 
-        _mapObstacles = new bool[(int)(mapSize.x), (int)(mapSize.y)];
+        _mapObstacles = new bool[mapSize.x, mapSize.y];
 
         int curObsCount = 0;
 
@@ -180,7 +186,7 @@ public class MapGenerator : MonoBehaviour
         }
 
 
-        return (int)(mapSize.x * mapSize.y - curObsCount) == accessibleCount;
+        return mapSize.x * mapSize.y - curObsCount == accessibleCount;
     }
 
     private Vector3 GetPosByCoord(Coord coord)

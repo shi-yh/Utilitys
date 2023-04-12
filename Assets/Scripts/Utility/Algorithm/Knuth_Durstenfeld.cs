@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public struct Coord
 {
@@ -12,6 +15,7 @@ public struct Coord
 
         this.y = y;
     }
+
 
     public static bool operator !=(Coord coord0, Coord coord1)
     {
@@ -62,5 +66,72 @@ public partial class Utility
 
 
         return array;
+    }
+
+    public static List<Coord> GetLineByBresenham(Coord begin, Coord end)
+    {
+        List<Coord> result = new List<Coord>();
+
+        int x = begin.x;
+
+        int y = begin.y;
+
+        int dx = end.x - begin.x;
+
+        int dy = end.y - begin.y;
+
+        //从x开始增加还是从y开始增加
+        bool inverted = false;
+
+        //x差值的正负，当x增长的时候，是向上还是向下
+        int step = Math.Sign(dx);
+        //Y差值的正负，当y增长的时候，是向上还是向下
+        int gradientStep = Math.Sign(dy);
+        int longest = Mathf.Abs(dx);
+        int shortest = Mathf.Abs(dy);
+
+        if (longest < shortest)
+        {
+            inverted = true;
+            longest = Mathf.Abs(dy);
+            shortest = Mathf.Abs(dx);
+            step = Math.Sign(dy);
+            gradientStep = Math.Sign(dx);
+        }
+
+        int gradientAccumulation = longest / 2;
+        
+        for (int i = 0; i < longest; i++)
+        {
+            result.Add(new Coord(x, y));
+
+            if (inverted)
+            {
+                y += step;
+            }
+            else
+            {
+                x += step;
+            }
+
+            gradientAccumulation += shortest;
+
+            if (gradientAccumulation >= longest)
+            {
+                if (inverted)
+                {
+                    x += gradientStep;
+                }
+                else
+                {
+                    y += gradientStep;
+                }
+
+                gradientAccumulation -= longest;
+            }
+        }
+
+
+        return result;
     }
 }

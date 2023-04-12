@@ -40,6 +40,7 @@ public class MapGenerator : MonoBehaviour
     private bool[,] _mapObstacles;
 
     private Coord _mapCenter;
+
     [SerializeField] private int _smoothCount;
 
 
@@ -176,6 +177,8 @@ public class MapGenerator : MonoBehaviour
 
     private void RejectMap()
     {
+        List<Room> survivingRooms = new List<Room>();
+
         List<List<Coord>> wallRegions = GetRegions(true);
 
         int blockSize = 10;
@@ -202,6 +205,155 @@ public class MapGenerator : MonoBehaviour
                 for (int j = 0; j < roomRegions[i].Count; j++)
                 {
                     SetObstacle(roomRegions[i][j].x, roomRegions[i][j].y, true);
+                }
+            }
+            else
+            {
+                survivingRooms.Add(new Room(roomRegions[i], _mapObstacles));
+            }
+        }
+
+        survivingRooms.Sort();
+
+        survivingRooms[0].isMainRoom = true;
+        survivingRooms[0].isAccessibleFromMainRoom = true;
+
+
+        ConnectCloseRooms(survivingRooms);
+    }
+
+    private void ConnectCloseRooms(List<Room> allRooms, bool forceAccessibilityFromMainRoom = false)
+    {
+        List<Room> mainRooms = new List<Room>();
+        List<Room> subRooms = new List<Room>();
+
+        //如果需要和主房间相连，那么先对所有的房间进行分配
+        if (forceAccessibilityFromMainRoom)
+        {
+            for (int i = 0; i < allRooms.Count; i++)
+            {
+                if (allRooms[i].isAccessibleFromMainRoom)
+                {
+                    mainRooms.Add(allRooms[i]);
+                }
+                else
+                {
+                    subRooms.Add(allRooms[i]);
+                }
+            }
+        }
+        else
+        {
+            mainRooms = subRooms = allRooms;
+        }
+
+
+        int bestDistance = int.MaxValue;
+
+        Coord bestTileA = new Coord();
+        Coord bestTileB = new Coord();
+
+        Room bestRoomA = new Room();
+        Room bestRoomB = new Room();
+        bool possibleConnectionFound = false;
+
+
+        for (int i = 0; i < subRooms.Count; i++)
+        {
+            //如果不强制要连接到主房间，那么只需要有连接就行
+            if (!forceAccessibilityFromMainRoom)
+            {
+                possibleConnectionFound = false;
+                if (subRooms[i].connectionRooms.Count > 0)
+                {
+                    continue;
+                }
+            }
+
+
+            for (int j = 0; j < mainRooms.Count; j++)
+            {
+                Room subRoom = subRooms[i];
+                Room mainRoom = mainRooms[j];
+
+                if (subRoom == mainRoom || subRoom.IsConnect(mainRoom))
+                {
+                    continue;
+                }
+
+
+                for (int tileIndexA = 0; tileIndexA < subRoom.edgeTiles.Count; tileIndexA++)
+                {
+                    for (int tileIndexB = 0; tileIndexB < mainRoom.edgeTiles.Count; tileIndexB++)
+                    {
+                        Coord edgeTileA = subRoom.edgeTiles[tileIndexA];
+
+                        Coord edgeTileB = mainRoom.edgeTiles[tileIndexB];
+
+                        int distanceBetweenRooms = (int)(MathF.Pow(edgeTileA.x - edgeTileB.x, 2) +
+                                                         MathF.Pow(edgeTileA.y - edgeTileB.y, 2));
+
+                        //不论如何，两个room会进行一次连接（默认possibleConnectionFound为false）
+                        //然后再找最近的两点
+                        if (distanceBetweenRooms < bestDistance || !possibleConnectionFound)
+                        {
+                            bestDistance = distanceBetweenRooms;
+                            possibleConnectionFound = true;
+                            bestTileA = edgeTileA;
+                            bestTileB = edgeTileB;
+                            bestRoomA = allRooms[i];
+                            bestRoomB = allRooms[j];
+                        }
+                    }
+                }
+            }
+
+            if (possibleConnectionFound && !forceAccessibilityFromMainRoom)
+            {
+                CreatePassage(bestRoomA, bestRoomB, bestTileA, bestTileB);
+            }
+        }
+
+        //如果本次成功对sub和main进行连接，那么继续执行，直到sub为空，possibleConnectionFound为false为止
+        if (possibleConnectionFound && forceAccessibilityFromMainRoom)
+        {
+            CreatePassage(bestRoomA, bestRoomB, bestTileA, bestTileB);
+            ConnectCloseRooms(allRooms, true);
+        }
+
+        //如果本次没有执行和mainRoom连接，则开始和mainRoom连接
+        if (!forceAccessibilityFromMainRoom)
+        {
+            ConnectCloseRooms(allRooms, true);
+        }
+    }
+
+    private void CreatePassage(Room RoomA, Room RoomB, Coord TileA, Coord TileB)
+    {
+        Room.ConnectRoom(RoomA, RoomB);
+
+        List<Coord> line = Utility.GetLineByBresenham(TileA, TileB);
+
+        for (int i = 0; i < line.Count; i++)
+        {
+            DrawCircle(line[i], 2);
+        }
+    }
+
+    private void DrawCircle(Coord coord, int r)
+    {
+        for (int x = -r; x <= r; x++)
+        {
+            for (int y = -r; y <= r; y++)
+            {
+                if (x * x + y * y <= r * r)
+                {
+                    int drawX = coord.x + x;
+                    int drawY = coord.y + y;
+                    if (IsInMapRange(drawX, drawY))
+                    {
+                        SetObstacle(drawX, drawY, false);
+                    }
                 }
             }
         }

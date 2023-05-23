@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4952532502488348735}
   - component: {fileID: 8054317298283695379}
   m_Layer: 0
-  m_Name: Obs
+  m_Name: P_Obs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

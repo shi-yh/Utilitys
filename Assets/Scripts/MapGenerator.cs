@@ -553,7 +553,9 @@ public class MapGenerator : MonoBehaviour
 
         _obs[coord] = go;
     }
-
+    
+    
+    
     private bool MapIsFullyAccessible(bool[,] mapObstacles, int curObsCount)
     {
         //检查标志
